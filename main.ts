@@ -1,6 +1,6 @@
 LCD1IN8.LCD_Init()
 LCD1IN8.LCD_Clear()
-let Count = 0
+let Xpoint = 20
 let Ypont = [
 2,
 4,
@@ -10,21 +10,6 @@ let Ypont = [
 12
 ]
 basic.forever(function () {
-    for (let index = 0; index < 4; index++) {
-        Count += 1
-        LCD1IN8.DrawPoint(
-        Count * 10,
-        70,
-        39638,
-        DOT_PIXEL.DOT_PIXEL_3
-        )
-        LCD1IN8.DrawPoint(
-        Count * 4,
-        70,
-        39638,
-        DOT_PIXEL.DOT_PIXEL_4
-        )
-    }
     LCD1IN8.DrawRectangle(
     10,
     9,
@@ -32,7 +17,20 @@ basic.forever(function () {
     117,
     0,
     DRAW_FILL.DRAW_EMPTY,
-    DOT_PIXEL.DOT_PIXEL_3
+    DOT_PIXEL.DOT_PIXEL_1
+    )
+    basic.showString("" + (input.lightLevel()))
+    basic.showString("")
+    LCD1IN8.DrawPoint(
+    Xpoint,
+    input.lightLevel(),
+    39638,
+    DOT_PIXEL.DOT_PIXEL_4
     )
     LCD1IN8.LCD_Display()
+    Xpoint += 20
+    if (150 < Xpoint) {
+        Xpoint = 20
+        LCD1IN8.LCD_Clear()
+    }
 })
