@@ -5,14 +5,12 @@ LCD1IN8.LCD_Clear()
 let Y2point = 0
 let Ypoint = 0
 let Xpoint = 80
-Ypoint = 60
+Ypoint = 69
 let r = 50
 let Pi = 3.14159
 basic.forever(function () {
     M = input.compassHeading()
-    M = 180
     M = M * (Pi / 180)
-    basic.showString("" + (M))
     LCD1IN8.DrawCircle(
     Xpoint,
     Ypoint,
@@ -25,22 +23,26 @@ basic.forever(function () {
     Xpoint,
     Ypoint,
     0,
-    DOT_PIXEL.DOT_PIXEL_3
+    DOT_PIXEL.DOT_PIXEL_1
     )
-    X2point = Xpoint + r * Math.cos(M)
-    Y2point = Ypoint + r * Math.sin(M)
-    LCD1IN8.DrawPoint(
-    X2point,
-    128 - Y2point,
-    0,
-    DOT_PIXEL.DOT_PIXEL_4
-    )
-    LCD1IN8.LCD_Display()
     LCD1IN8.DrawLine(
     Xpoint,
     Ypoint,
     X2point,
-    128 - Y2point,
+    Y2point,
+    65535,
+    DOT_PIXEL.DOT_PIXEL_1,
+    LINE_STYLE.LINE_SOLID
+    )
+    Y2point = Ypoint + r * Math.cos(M)
+    X2point = Xpoint + r * Math.sin(M)
+    X2point = Math.round(X2point)
+    Y2point = Math.round(Y2point)
+    LCD1IN8.DrawLine(
+    Xpoint,
+    Ypoint,
+    X2point,
+    Y2point,
     0,
     DOT_PIXEL.DOT_PIXEL_1,
     LINE_STYLE.LINE_SOLID
