@@ -8,15 +8,15 @@ let Ypont = 0
 basic.forever(function () {
     M = input.lightLevel()
     basic.showString("" + (M))
-    Ypont = Ypont + 3
-    Y2point = Y2point + 3
-    Xpoint = 128
-    X2point = 128 - Math.round(M / 2)
+    Ypont = 128
+    Y2point = 128 - Math.round(M / 2)
+    Xpoint = Xpoint + 3
+    X2point = X2point + 3
     LCD1IN8.DrawLine(
-    Ypont,
     Xpoint,
-    Y2point,
+    Ypont,
     X2point,
+    Y2point,
     56550,
     DOT_PIXEL.DOT_PIXEL_3,
     LINE_STYLE.LINE_SOLID
