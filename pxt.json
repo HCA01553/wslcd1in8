@@ -1,5 +1,5 @@
 {
-    "name": "WSLCD1in8 (Brightness)",
+    "name": "WSLCD1in8 (compass) ",
     "description": "",
     "dependencies": {
         "core": "*",
