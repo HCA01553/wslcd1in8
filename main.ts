@@ -9,7 +9,7 @@ Ypoint = 69
 let r = 50
 let Pi = 3.14159
 basic.forever(function () {
-    M = input.compassHeading()
+    M = input.compassHeading() - 180
     M = M * (Pi / 180)
     LCD1IN8.DrawCircle(
     Xpoint,
