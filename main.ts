@@ -34,6 +34,12 @@ basic.forever(function () {
     DOT_PIXEL.DOT_PIXEL_1,
     LINE_STYLE.LINE_SOLID
     )
+    LCD1IN8.DisString(
+    X2point,
+    Y2point,
+    "N",
+    65535
+    )
     Y2point = Ypoint + r * Math.cos(M)
     X2point = Xpoint + r * Math.sin(M)
     X2point = Math.round(X2point)
@@ -46,6 +52,12 @@ basic.forever(function () {
     0,
     DOT_PIXEL.DOT_PIXEL_1,
     LINE_STYLE.LINE_SOLID
+    )
+    LCD1IN8.DisString(
+    X2point,
+    Y2point,
+    "N",
+    255
     )
     LCD1IN8.LCD_Display()
 })
